@@ -61,9 +61,7 @@ const EditListingPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const [listing, setListing] = useState<Listing | null>(null);
 
   const [formData, setFormData] = useState<ListingFormData>({
     title: "",
@@ -83,11 +81,8 @@ const EditListingPage = () => {
 
     const fetchListing = async () => {
       try {
-        setLoading(true);
         const res = await axios.get(`/api/listings/${id}`);
         const listingData = res.data;
-
-        setListing(listingData);
 
         setFormData({
           title: listingData.title || "",
@@ -107,8 +102,6 @@ const EditListingPage = () => {
         console.log("Error : ", error);
         toast.error("Failed to fetch listing data");
         router.push("/");
-      } finally {
-        setLoading(false);
       }
     };
     fetchListing();
