@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { FuelType, Gearbox, Listing } from "@prisma/client";
+import { FuelType, Gearbox } from "@prisma/client";
 import axios from "axios";
 import { ArrowLeft, Loader2, Save } from "lucide-react";
 import Link from "next/link";
